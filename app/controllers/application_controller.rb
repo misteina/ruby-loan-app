@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
     private
     def require_login
-        unless logged_in?
-            @error = Hash["error" => "Not logged in"]
+        if  !cookies.signed[:wdt]
+            @error = Hash["error" => "unkown"]
             render json: @error
         end
     end
