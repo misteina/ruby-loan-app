@@ -1,7 +1,8 @@
+require 'date'
+
 class LoanapplicationController < ApplicationController
     def action
         if cookie.signed[:tis]
-            require 'date'
 
             amount = params[:amount].to_i
             duration = params[:duration]
